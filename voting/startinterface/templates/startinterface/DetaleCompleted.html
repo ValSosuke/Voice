@@ -1,0 +1,31 @@
+{% extends "startinterface/wrapper.html" %}
+{% load staticfiles %}
+
+{% block menu %}
+	<li ><a href={% url 'SelectStatus' %}>Аctive</a></li>
+    <li class="active"><a href={% url 'CompletedVoiting' %}>Сompleted</a></li>
+{% endblock %}
+{% block form %}
+	<section class="banner" id="home">
+		<div class="container">
+			<div class="row">
+			    {% for i in personevoice %}
+				    
+				    <div class="col-xs-12 wow fadeInLeft ">
+					    
+					    <h1>
+					    
+					    {{i.person}}    {{i.changeVoice}}
+                        
+                        
+                        </h1>
+				    </div>
+			
+					<
+				{%endfor%}
+				
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
