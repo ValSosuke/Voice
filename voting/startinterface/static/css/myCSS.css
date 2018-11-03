@@ -9,4 +9,274 @@
     background-repeat: no-repeat;
     background-size: cover;
     } 
-    
+    .vertical-align {
+    display: flex;
+    align-items: center;
+}
+ .section-row {
+     margin-bottom:40px;
+}
+ .post {
+     margin-bottom: 40px;
+}
+
+
+
+/*--------------POST--------------------*/
+.post {
+     margin-bottom: 40px;
+}
+ .post .post-img {
+     display: block;
+     -webkit-transition: 0.2s opacity;
+     transition: 0.2s opacity;
+}
+ .post .post-img:hover, .post .post-img:focus {
+     opacity: 0.9;
+}
+ .post .post-img > img {
+     width: 100%;
+}
+ .post .post-meta {
+     margin-top: 15px;
+     margin-bottom: 15px;
+}
+ .post-meta .post-category {
+     font-size: 13px;
+     text-transform: uppercase;
+     padding: 3px 10px;
+     font-weight: 600;
+     border-radius: 2px;
+     margin-right: 15px;
+     color: #FFF;
+     background-color: #212631;
+     -webkit-transition: 0.2s opacity;
+     transition: 0.2s opacity;
+}
+ .post-meta .post-category:hover, .post-meta .post-category:focus {
+     text-decoration: none;
+     opacity: 0.9;
+}
+ .post-meta .post-category.cat-1 {
+     background-color: #4BB92F;
+}
+ .post-meta .post-category.cat-2 {
+     background-color: #ff8700;
+}
+ .post-meta .post-category.cat-3 {
+     background-color: #8d00ff;
+}
+ .post-meta .post-category.cat-4 {
+     background-color: #0078ff;
+}
+ .post-meta .post-date {
+     font-size: 13px;
+     font-weight: 600;
+}
+ .post .post-title {
+     font-size: 18px;
+     margin-bottom: 0px;
+}
+ .post-tags li {
+     display:inline-block;
+     margin-right:3px;
+     margin-bottom:5px;
+}
+ .post-tags li a {
+     display:block;
+     color:#fff;
+     background-color: #212631;
+     padding:3px 10px;
+     font-weight:600;
+     border-radius:2px;
+     -webkit-transition:0.2s opacity;
+     transition:0.2s opacity;
+}
+
+ .post.post-thumb {
+     position: relative;
+}
+ .post.post-thumb .post-img:after {
+     content: '';
+     position: absolute;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     top: 0;
+     background: -webkit-gradient(linear, left bottom, left top, from(rgba(33, 38, 49, 0.3)), to(transparent));
+     background: linear-gradient(to top, rgba(33, 38, 49, 0.3) 0%, transparent 100%);
+}
+ .post.post-thumb .post-body {
+     position: absolute;
+     bottom: 0px;
+     padding: 20px 15px;
+}
+ .post.post-thumb .post-meta .post-date {
+     color: #eceef2;
+}
+ .post.post-thumb .post-title {
+     font-size: 22px;
+}
+ .post.post-thumb .post-title > a {
+     color: #FFF;
+}
+/*----------------------------*\
+	post widget
+\*----------------------------*/
+ .post.post-widget:after {
+     content: '';
+     display: block;
+     clear: both;
+}
+ .post.post-widget .post-img {
+     width: 90px;
+     float: left;
+     margin-right: 15px;
+}
+ .post.post-widget .post-img img {
+     width: 100%;
+}
+ .post.post-widget .post-title {
+     font-size: 18px;
+}
+/*----------------------------*\
+	post row
+\*----------------------------*/
+ .post.post-row:after {
+     content: '';
+     display: block;
+     clear: both;
+}
+ .post.post-row .post-img {
+     width: 40%;
+     float: left;
+}
+ .post.post-row .post-body {
+     margin-left: calc(40% + 30px);
+}
+ .post.post-row .post-meta {
+     margin-top: 0px;
+}
+ .post.post-row .post-title {
+     margin-bottom: 15px;
+}
+
+ .sticky-container {
+     position: relative;
+     padding-left: 80px;
+}
+ .sticky-container .sticky-shares {
+     position: absolute;
+     top: 0;
+     left: 0;
+}
+ .sticky-shares a {
+     display: block;
+     margin-bottom: 10px;
+     width: 40px;
+     height: 40px;
+     line-height: 40px;
+     text-align: center;
+     border-radius: 50%;
+     background-color: #fbfbfd;
+     color: #a7b3c6;
+     border: 1px solid #eceef2;
+     -webkit-transition: 0.2s all;
+     transition: 0.2s all;
+}
+ .sticky-shares a:hover {
+     -webkit-transform: scale(1.3);
+     -ms-transform: scale(1.3);
+     transform: scale(1.3);
+}
+ .sticky-shares a.share-facebook:hover {
+     color: #3b5998;
+     border-color: #3b5998;
+}
+ .sticky-shares a.share-twitter:hover {
+     color: #55acee;
+     border-color: #55acee;
+}
+ .sticky-shares a.share-google-plus:hover {
+     color: #dd4b39;
+     border-color: #dd4b39;
+}
+ .sticky-shares a.share-pinterest:hover {
+     color: #ff0000;
+     border-color: #ff0000;
+}
+ .sticky-shares a.share-linkedin:hover {
+     color: #007bb5;
+     border-color: #007bb5;
+}
+/*----------------------------*\
+	author
+\*----------------------------*/
+ .post-author .media .media-left {
+     padding-right: 40px;
+}
+ .post-author .media .media-left .media-object {
+     width:120px;
+     border-radius: 50%;
+}
+ .post-author .author-social {
+     margin-top:15px;
+}
+ .post-author .author-social li {
+     display: inline-block;
+     margin-right: 5px;
+}
+ .post-author .author-social li > a {
+     display: block;
+     width: 30px;
+     height: 30px;
+     line-height: 30px;
+     text-align: center;
+     background-color: #a7b3c6;
+     color: #FFF;
+     border-radius: 2px;
+     -webkit-transition: 0.2s opacity;
+     transition: 0.2s opacity;
+}
+ .post-author .author-social li > a:hover, .post-author .author-social li > a:focus {
+     color: #FFF;
+     opacity: 0.9;
+}
+
+ .post-comments .media {
+     padding-top: 15px;
+     border-top: 1px solid #eceef2;
+}
+ .post-comments .media:nth-child(1) {
+     padding-top: 0px;
+     border-top: none;
+}
+ .post-comments .media .media-left {
+     padding-right: 15px;
+}
+ .post-comments .media .media-left .media-object {
+     width:70px;
+     border-radius: 50%;
+}
+ .post-comments .media .media-body .media-heading h4 {
+     text-transform: capitalize;
+}
+ .post-comments .media .media-body .media-heading .time {
+     font-size: 13px;
+     margin-right: 15px;
+     color: #a7b3c6;
+}
+ .post-comments .media .media-body .media-heading .reply {
+     font-size: 13px;
+     color: #a7b3c6;
+     -webkit-transition: 0.2s color;
+     transition: 0.2s color;
+}
+ .post-comments .media .media-body .media-heading .reply:hover, .post-comments .media .media-body .media-heading .reply:focus {
+     color: #212631;
+     text-decoration: none;
+}
+
+ .aside-widget {
+     margin-bottom: 40px;
+}

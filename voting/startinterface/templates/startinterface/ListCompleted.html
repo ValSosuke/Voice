@@ -6,7 +6,7 @@
     <li class="active"><a href={% url 'CompletedVoiting' %}>Сompleted</a></li>
 {% endblock %}
 {% block form %}
-	<section class="banner" id="home">
+	<!--<section class="banner" id="home">
 		<div class="container">
 			<div class="row">
 			    {% for i in modelvoice %}
@@ -18,6 +18,70 @@
 				
 			</div>
 		</div>
-	</section>
+	</section>-->
+	<style>
+		.circleBase {
+    		border-radius: 10%;
+     /* remove if you don't care about IE8 */
+		}
 
+		.type1 {
+
+    		border: 1px solid red;
+		}
+		.type2 {
+
+    		border: 1px solid #000;
+		}
+		.type3 {
+
+    		border: 10px solid blue;
+		}
+    </style>
+		<div class="section section-grey">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title text-center">
+							<h2>List Completed</h2>
+						</div>
+					</div>
+
+					<!-- post -->
+ 					{% for i in modelvoice %}
+ 					
+					<div class="col-md-6 bg-success circleBase type1">
+						
+						<div class="post ">
+							<!--<a class="post-img"><img src=  "{{i.photo.url}}" align="center" border="10" width="150" height="100" alt=""></a>-->
+							
+							<div class="post-body ">
+								<div class="post-meta post-category cat-2">
+								   
+									<a class="post-category cat-2" > {{i.dateStart}}</a>
+									<span class="post-date">{{i.dateFinal}}</span>
+									
+								</div>
+								<h3 class="post-title"><a href={% url 'DetaleCompleted' %}?id={{i.id_name}}>Vote name: {{i.nameVoice}}</a></h3>
+								
+							</div>
+						</div>
+						
+					</div>
+					
+					{% endfor %}
+
+					<!-- /post -->
+
+					<!-- post -->
+
+					<!-- /post -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<br>
 {% endblock %}

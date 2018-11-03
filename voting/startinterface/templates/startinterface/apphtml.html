@@ -6,7 +6,7 @@
     <li><a href={% url 'CompletedVoiting' %}>Сompleted</a></li>
 {% endblock %}
 {% block form %}
-	<section class="banner" id="home">
+	<!--<section class="banner" id="home">
 		<div class="container">
 			<div class="row">
 			    {% for i in modelvoice %}
@@ -18,6 +18,104 @@
 				
 			</div>
 		</div>
-	</section>
+
+	</section>-->
+
+	
+		<!--<div class="section">
+			
+			<div class="container">
+				
+				<div class="row">	
+					
+					{% for i in modelvoice %}
+					<div class="col-md-6">
+						<div class="post post-thumb">
+							
+							<div class="post-body">
+								<div class="post-meta">
+									<a class="post-category cat-2" href="category.html">JavaScript</a>
+									<span class="post-date">March 27, 2018</span>
+								</div>
+								<h3 class="post-title"><a href={% url 'DetaleActive' %}?id={{i.id_name}}>{{i.nameVoice}}</a></h3>
+							</div>
+						</div>
+					</div>
+					{%endfor%}
+
+				</div>
+			</div>
+		</div>-->
+		<!-- section -->
+		
+		<!-- /section -->
+		
+		<!-- section -->
+	<style>
+		.circleBase {
+    		border-radius: 10%;
+     /* remove if you don't care about IE8 */
+		}
+
+		.type1 {
+
+    		border: 1px solid green;
+		}
+		.type2 {
+
+    		border: 1px solid #000;
+		}
+		.type3 {
+
+    		border: 10px solid blue;
+		}
+    </style>
+		<div class="section section-grey">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title text-center">
+							<h2>List Active</h2>
+						</div>
+					</div>
+
+					<!-- post -->
+ 					{% for i in modelvoice %}
+ 					
+					<div class="col-md-6 bg-success circleBase type1">
+						
+						<div class="post">
+							<!--<a class="post-img" href="blog-post.html"><img src="./img/post-4.jpg" alt=""></a>-->
+							
+							<div class="post-body">
+								<div class="post-meta">
+									<a class="post-category cat-2" > {{i.dateStart}}</a>
+									<span class="post-date">{{i.dateFinal}}</span>
+								</div>
+								<h3 class="post-title"><a href={% url 'DetaleActive' %}?id={{i.id_name}}>Vote name: {{i.nameVoice}}</a></h3>
+							</div>
+						</div>
+						
+					</div>
+					
+					{% endfor %}
+
+					<!-- /post -->
+
+					<!-- post -->
+
+					<!-- /post -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /section -->
+
+		<!-- section -->
+		<br>
 
 {% endblock %}
+    

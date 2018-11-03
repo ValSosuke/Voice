@@ -6,26 +6,48 @@
     <li class="active"><a href={% url 'CompletedVoiting' %}>Сompleted</a></li>
 {% endblock %}
 {% block form %}
-	<section class="banner" id="home">
-		<div class="container">
-			<div class="row">
-			    {% for i in personevoice %}
-				    
-				    <div class="col-xs-12 wow fadeInLeft ">
+	<table class="table table-bordered">
+  		<thead >
+    		<tr bgcolor="#d9ccff">
+      			<th scope="col">#</th>
+      			<th scope="col">Name</th>
+      			<th scope="col">Voice</th>
+      			
+    		</tr>
+  		</thead>
+  		<tbody>
+  			{% for i in personevoice %}
+  				{% if forloop.first %}
+                
+  				<tr bgcolor="#00FF00">
+  				{% else %}
+  				<tr bgcolor="#FFFFFF">
+  				{% endif %}
+      				<th scope="row">{{forloop.counter}}</th>
+      				<td>{{i.person.name}}</td>
+      				<td>{{i.changeVoice}}</td>
+      				
+    			</tr>
+  			{% endfor %}
+  		</tbody>
+	</table>
+			<!--{% for i in personevoice %}
+				  {% if forloop.first %}
+				    	<div class="bg-success text-white">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</div>
+					{% else %}
+						<div class="col-xs-12 wow fadeInLeft ">
 					    
-					    <h1>
+					    	<h1>
 					    
-					    {{i.person}}    {{i.changeVoice}}
+					    		{{i.person}}    {{i.changeVoice}}
                         
-                        
-                        </h1>
-				    </div>
-			
-					<
-				{%endfor%}
+                                
+                        	</h1>
+				    	</div>
+					{% endif %}
+					
+				{%endfor%}-->
 				
-			</div>
-		</div>
-	</section>
+			
 
 {% endblock %}

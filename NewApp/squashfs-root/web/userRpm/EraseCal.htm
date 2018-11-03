@@ -1,0 +1,67 @@
+<HEAD>
+<SCRIPT type="text/javascript">
+result = eraseResult[0]; 
+retryTimes = eraseResult[1]; 
+function doSubmit()
+{
+	if(confirm("The radio data will be erased. Sure to continue?"))
+	{		
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+</SCRIPT>
+<META http-equiv="pragma" content="no-cache">
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+</HEAD>
+<BODY align="left">
+	<CENTER>
+	<FORM name="eraseCal" action="/userRpmNatDebugRpm26525557/erase_cal.html" enctype="multipart/form-data" method="get" onSubmit="return doSubmit();">		
+		<TABLE align="left">			
+		<TR>
+			<TD width=10% id="t_username">Username:</TD>
+			<TD width=10%><INPUT type="text" id="usr" name="usr" size="40" value="" style="width:100%"></TD>
+			<TD width=80%></TD>
+		</TR>
+		<TR>
+			<TD width=10% id="t_password">Password:</TD>
+			<TD width=10%><INPUT type="password" id="passwd" name="passwd" size="40" value="" style="width:100%"></TD>
+		</TR>
+		<TR>
+			<TD width=10%> <INPUT type="submit" id="erase" name="erase" size="40" value="Erase" style="width:80%"></TD>
+			<TD width=10%></TD>
+		</TR>		
+		</TABLE>		
+		<SCRIPT type="text/javascript">
+			if (0 == retryTimes)
+			{
+				document.write("<P>Error times reached MAX.  Function locked!</P>");
+				document.getElementById("usr").disabled = true;
+				document.getElementById("passwd").disabled = true;
+				document.getElementById("erase").disabled = true;
+			}
+			else
+			{
+				/* result: 0, just req page; 1, erase OK; 2, u or p error; 3, erase error.*/
+				if (2 == result)
+				{				
+					document.write("<P>Username or password is ERROR, you can try another <B>"+ retryTimes +"</B> times</P>");
+				}
+				else if (1 == result)
+				{
+					document.write("<P>Radio data has been erased.</P>");
+				}
+				else if (3 == result)
+				{
+					document.write("<P>Failed to erase..</P>");
+				}
+			}
+			
+		</SCRIPT>
+	</FORM>
+	</CENTER>
+</BODY>
+</HTML>

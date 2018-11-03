@@ -5,6 +5,9 @@ from django.db import models
 
 # Create your models here.
 from django import forms
+from datetime import datetime 
+from datetime import date
+
 
 #class NameForm(forms.Form):
 #    your_name = forms.CharField(label='Your name', max_length=100)
@@ -13,9 +16,13 @@ from django import forms
 class ModelPerson(models.Model):
     id_name = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='images', null=False, blank=True)
-    age = models.IntegerField()
-			
+    photo = models.ImageField(upload_to="gallery")
+    datee = models.DateField()
+    def age(self):
+        today = date.today()
+        return today.year - self.datee.year - ((today.month, today.day) < (self.datee.month, self.datee.day))
+    def __unicode__(self):
+        return self.name
 class ModelVoice(models.Model):
     """docstring for TableName"""
     id_name = models.AutoField(primary_key=True)
@@ -23,14 +30,16 @@ class ModelVoice(models.Model):
     dateStart = models.DateTimeField()
     dateFinal = models.DateTimeField()
     maxVoice = models.IntegerField()
-    person = models.ManyToManyField(ModelPerson)
+    person = models.ManyToManyField(ModelPerson, through = 'ModelPersonVoice')
     status = models.BooleanField(default=True)
+    def __unicode__(self):
+        return self.nameVoice
     #listOfPerson = models.CharField(max_length=50)
 
 class ModelPersonVoice(models.Model):
     id_name = models.AutoField(primary_key=True)
-    person = models.CharField(max_length=50)
-    nameVoice = models.CharField(max_length=50)
+    person = models.ForeignKey(ModelPerson, on_delete=models.CASCADE)
+    voice = models.ForeignKey(ModelVoice, on_delete=models.CASCADE)
     changeVoice = models.IntegerField()
     
-		
+
