@@ -7,8 +7,8 @@ from django.db import models
 from django import forms
 from datetime import datetime 
 from datetime import date
-
-
+from django.utils import timezone
+from django.db.models import F
 #class NameForm(forms.Form):
 #    your_name = forms.CharField(label='Your name', max_length=100)
 
@@ -25,13 +25,23 @@ class ModelPerson(models.Model):
         return self.name
 class ModelVoice(models.Model):
     """docstring for TableName"""
+
     id_name = models.AutoField(primary_key=True)
     nameVoice = models.CharField(max_length=50)
     dateStart = models.DateTimeField()
     dateFinal = models.DateTimeField()
     maxVoice = models.IntegerField()
     person = models.ManyToManyField(ModelPerson, through = 'ModelPersonVoice')
-    status = models.BooleanField(default=True)
+    status = models.BooleanField()
+    @property
+    def status(self):
+        mm = ModelPersonVoice.objects.filter(voice__id_name=self.id_name).filter(changeVoice__gte=self.maxVoice)
+        if mm:
+            return False    
+        if timezone.now()>=self.dateFinal:
+            return  False
+        return True
+
     def __unicode__(self):
         return self.nameVoice
     #listOfPerson = models.CharField(max_length=50)

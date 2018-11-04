@@ -6,51 +6,7 @@
     <li><a href={% url 'CompletedVoiting' %}>Сompleted</a></li>
 {% endblock %}
 {% block form %}
-	<!--<section class="banner" id="home">
-		<div class="container">
-			<div class="row">
-			    {% for i in modelvoice %}
-				    <div class="col-xs-12 wow fadeInLeft ">
-					    <h1><a href= {% url 'DetaleActive' %}?id={{i.id_name}}>{{i.nameVoice}}</a></h1>		
-					    
-				    </div>
-				{%endfor%}
-				
-			</div>
-		</div>
-
-	</section>-->
-
 	
-		<!--<div class="section">
-			
-			<div class="container">
-				
-				<div class="row">	
-					
-					{% for i in modelvoice %}
-					<div class="col-md-6">
-						<div class="post post-thumb">
-							
-							<div class="post-body">
-								<div class="post-meta">
-									<a class="post-category cat-2" href="category.html">JavaScript</a>
-									<span class="post-date">March 27, 2018</span>
-								</div>
-								<h3 class="post-title"><a href={% url 'DetaleActive' %}?id={{i.id_name}}>{{i.nameVoice}}</a></h3>
-							</div>
-						</div>
-					</div>
-					{%endfor%}
-
-				</div>
-			</div>
-		</div>-->
-		<!-- section -->
-		
-		<!-- /section -->
-		
-		<!-- section -->
 	<style>
 		.circleBase {
     		border-radius: 10%;
@@ -70,6 +26,7 @@
     		border: 10px solid blue;
 		}
     </style>
+    {% if modelvoice|length != 0 %}
 		<div class="section section-grey">
 			<!-- container -->
 			<div class="container">
@@ -112,6 +69,13 @@
 			</div>
 			<!-- /container -->
 		</div>
+	{% else %}
+	<div class="section-title text-center">
+		<h2>There are no open votes!</h2>
+	</div>
+		
+
+	{% endif %}
 		<!-- /section -->
 
 		<!-- section -->
