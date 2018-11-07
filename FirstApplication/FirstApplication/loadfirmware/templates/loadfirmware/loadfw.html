@@ -1,0 +1,59 @@
+{% extends 'ServerFirmware/wrapper.html'%}
+
+{% block menu %}
+	<li><a href="/ServerFirmware/">Home</a></li>
+    <li><a href="/news">News</a></li>
+    <li class="active"><a href="/loadfirmware">Load Firmware</a></li>
+{% endblock %}
+
+{% block form %}
+	<!--<form method="post" enctype="multipart/form-data" class="was-validated" action="/loadfirmware/">{% csrf_token %}	
+  	<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+  </div>
+</div>
+    <button tupe="submit" class="btn btn-default">Analyze</button>
+    </form>-->
+    <div class="conteiner bg1">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data" >{% csrf_token %}
+    <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-3 wow fadeInLeft animated" align="left">
+            <label class="file-upload btn btn-primary" >
+            {{form}}
+            </label>
+        </div>
+        <div class="col-sm-7 wow fadeInRight animated">
+		
+			<h1>Help!</h1>
+			<h3>On the left is a form to fill out. Add two binary firmware files for research to it. Also select the functions for analyzing the files used, from the list below the file selection fields. Wait approximately 30 minutes.</h3>
+
+					
+		</div>
+
+    <!--<div class="col-sm-offset-1 col-sm-12">
+            <label class="file-upload btn btn-primary">
+            {{form}}
+            </label>
+    </div>-->
+    <div class="col-sm-offset-1 col-sm-12">
+    <button tupe="submit" class="btn btn-success">Analyze</button>
+    </div>
+    </div>
+    
+</form>
+    </div>
+{% endblock %}
+    	
+    		
+    	
+
+    
+    
+
+
+

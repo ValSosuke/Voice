@@ -11,18 +11,27 @@ from django.utils import timezone
 from django.db.models import F
 #class NameForm(forms.Form):
 #    your_name = forms.CharField(label='Your name', max_length=100)
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 
 
 class ModelPerson(models.Model):
     id_name = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
+    #name = models.CharField(max_length=50)
+    user = user = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
     photo = models.ImageField(upload_to="gallery")
     datee = models.DateField()
     def age(self):
         today = date.today()
         return today.year - self.datee.year - ((today.month, today.day) < (self.datee.month, self.datee.day))
     def __unicode__(self):
-        return self.name
+        return self.user.username
+
+    
+
+
+
+
 class ModelVoice(models.Model):
     """docstring for TableName"""
 

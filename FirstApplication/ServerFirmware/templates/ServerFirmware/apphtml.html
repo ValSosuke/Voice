@@ -1,0 +1,27 @@
+{% extends "ServerFirmware/wrapper.html" %}
+{% load staticfiles %}
+{% load templatetags1 %}
+{% block menu %}
+	<li class="active"><a href="/ServerFirmware/">Home</a></li>
+    <li><a href="/news">News</a></li>
+    <li><a href="/loadfirmware">Load Firmware</a></li>
+{% endblock %}
+{% block form %}
+	<section class="banner" id="home">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 wow fadeInLeft animated">
+					<h3>welcome!</h3>
+					<h1>Short description.</h1>
+					<p>This application is designed to search for modifications of text and executable files of file systems for firmware of network devices. At the output of the application, you will get a beautiful report on each modified firmware file.</p>
+					<p> {{'FOOT'|lower}} </p>
+					
+				</div>
+				<div class="col-xs-6 banner-img wow fadeInRight animated">
+					<img class="img-responsive" src={% static "images/rout1.jpeg" %} alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
